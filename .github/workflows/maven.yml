@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/nhnacademy-final-project-discovery-service:${{ github.sha }} ./discovery-service/
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/nhnacademy-final-project-discovery-service:${{ github.sha }}
           docker push ${{ secrets.DOCKER_USERNAME }}/nhnacademy-final-project-discovery-service:${{ github.sha }}
 
       - name: Deploy to Cloud Server
