@@ -42,7 +42,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            SERVICE_NAME="api-service"
+            SERVICE_NAME="discovery-service"
             
             COMPOSE_DIR="./projects/docker-compose"
             
