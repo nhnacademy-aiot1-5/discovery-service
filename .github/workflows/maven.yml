@@ -44,14 +44,13 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            echo "DISCOVERY_IMAGE_TAG=${{ github.sha }}" > .env
-            source ~/.bashrc
-            
             SERVICE_NAME="discovery-service"
             
             COMPOSE_DIR="./projects/docker-compose"
             
             cd $COMPOSE_DIR
+            echo "DISCOVERY_IMAGE_TAG=${{ github.sha }}" > .env
+            source ~/.bashrc
             
             RUNNING=$(docker-compose ps -q $SERVICE_NAME)
             
