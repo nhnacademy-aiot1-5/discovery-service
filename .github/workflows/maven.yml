@@ -44,7 +44,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            grep -q 'export DISCOVERY_IMAGE_TAG=' ~/.bashrc && sed -i 's/export DISCOVERY_IMAGE_TAG=.*/export DISCOVERY_IMAGE_TAG=${{ github.sha }}/' ~/.bashrc || echo 'export DISCOVERY_IMAGE_TAG=${{ github.sha }}' >> ~/.bashrc
+            echo "DISCOVERY_IMAGE_TAG=${{ github.sha }}" > .env
             source ~/.bashrc
             
             SERVICE_NAME="discovery-service"
